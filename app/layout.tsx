@@ -4,7 +4,6 @@ import Footer from './components/footer';
 import { Navbar } from './components/nav'
 import "./globals.css";
 import { ThemeProvider } from "../context/ThemeContext";
-import { CommonBGText } from "@/utils/utils";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -32,9 +31,11 @@ export default function RootLayout({
     <ThemeProvider >
       <html lang="en">
       <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased ${CommonBGText}`}>
+          className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[var(--color1)] text-[var(--color4)]`}>
           <Navbar />
+          <div className="flex justify-center items-center min-h-screen">
         {children}
+          </div>
           <Footer />
       </body>
       </html>
