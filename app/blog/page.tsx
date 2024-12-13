@@ -1,5 +1,4 @@
 import posts from '../components/posts'
-import Link from 'next/link'
 
 export const metadata = {
     title: 'Blog',
