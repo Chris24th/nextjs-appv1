@@ -1,5 +1,3 @@
-import { CommonBGText } from "@/utils/utils"
-
 
 
 function ArrowIcon() {
