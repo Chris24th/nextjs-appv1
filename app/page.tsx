@@ -1,6 +1,12 @@
+'use client';
 import { FaDownload } from "react-icons/fa";
+import { useTheme } from '../context/ThemeContext';
 
 export default function Home() {
+  const { theme, toggleTheme } = useTheme();
+
+  if (!theme) return null;
+
   return (
     <main className="flex flex-col items-center justify-between p-6 m-10 bg-[var(--color1)] dark:bg-[var(--color4)] text-[var(--color4)] dark:text-[var(--color1)]">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-3 w-full min-h-screen">
@@ -32,7 +38,13 @@ export default function Home() {
 
         {/* Column 2 */}
         <div className="flex items-center justify-center">
-          <img src="doodle2.png" alt="Tech Image" />
+          {
+            theme === 'dark' ? (
+              <img src="sitting-dark.png" alt="Tech Image" />
+            ) : (
+              <img src="sitting-light.png" alt="Tech Image" />
+            )
+          }
         </div>
       </div>
 
@@ -50,7 +62,13 @@ export default function Home() {
 
         {/* Column 2 */}
         <div className="flex items-center justify-center">
-          <img src="doodle3.png" alt="Tech Image" />
+          {
+            theme === 'dark' ? (
+              <img src="desk-dark.png" alt="Tech Image" />
+            ) : (
+              <img src="desk-light.png" alt="Tech Image" />
+            )
+          }
         </div>
       </div>
     </main>

@@ -27,7 +27,7 @@ export default function Page() {
                             <div className="flex justify-between items-center text-sm text-gray-400 dark:text-gray-500">
                                 <span>{post.date}</span>
                                 <a
-                                    href={`/blog/${post.slug}`}
+                                    href={`/blog/posts/${post.slug}`}
                                     className="hover:text-[var(--color3)] font-medium"
                                 >
                                     Read More →
