@@ -12,6 +12,8 @@
     /* Highlight */
     --color4: #222831;
     /* Text */
+    --color5: #1F2937;
+      /* codeBg */
 }
 
 /* Dark theme (when class or media query is active) */
@@ -24,6 +26,10 @@
   /* Highlight */
   --color4: #EEEEEE;
   /* Text */
+  --color4: #EEEEEE;
+    /* Text */
+    --color5: #111827;
+    /* codeBg */
 }
 
 
