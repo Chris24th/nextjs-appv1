@@ -3,7 +3,7 @@ import { FaDownload } from "react-icons/fa";
 import { useTheme } from '../context/ThemeContext';
 
 export default function Home() {
-  const { theme, toggleTheme } = useTheme();
+  const { theme } = useTheme();
 
   if (!theme) return null;
 
