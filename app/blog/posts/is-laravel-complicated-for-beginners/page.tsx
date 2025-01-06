@@ -7,7 +7,7 @@ export default function Blog1() {
         return (
             <div className="space-y-6">
                 <p className="text-lg text-[var(--color4)] leading-relaxed text-justify">
-                    Laravel is a popular PHP framework, but many beginners find it complicated. While it's powerful and full of features, it can be overwhelming for those just starting. Here's a breakdown of its advantages and disadvantages, especially for beginners.
+                    Laravel is a popular PHP framework, but many beginners find it complicated. While it&apos;s powerful and full of features, it can be overwhelming for those just starting. Here&apos;s a breakdown of its advantages and disadvantages, especially for beginners.
                 </p>
 
                 <h2 className="text-3xl font-semibold text-[var(--color4)] mt-6">Advantages of Laravel</h2>
@@ -51,7 +51,7 @@ export default function Blog1() {
 
                 <h2 className="text-3xl font-semibold text-[var(--color4)] mt-6">Conclusion</h2>
                 <p className="text-lg text-[var(--color4)] leading-relaxed text-justify">
-                    Laravel offers a lot of functionality but can be difficult for beginners due to its complexity. If you're just starting out with PHP or web development, you may want to consider a simpler framework. However, if you're willing to invest time in learning, Laravel can be a powerful tool for building robust applications.
+                    Laravel offers a lot of functionality but can be difficult for beginners due to its complexity. If you&apos;re just starting out with PHP or web development, you may want to consider a simpler framework. However, if you&apos;re willing to invest time in learning, Laravel can be a powerful tool for building robust applications.
                 </p>
             </div>
         );

@@ -1,6 +1,3 @@
-"use client";
-import { useState } from "react";
-import { FiCopy } from "react-icons/fi";
 import PostLayout from "../../../components/postLayout";
 
 export default function Blog1() {
