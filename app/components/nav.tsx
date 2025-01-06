@@ -28,7 +28,7 @@ export function Navbar() {
         {/* Logo Section */}
         <div className="flex items-center">
           <Link href="/" className="text-xl font-bold text-[var(--color4)]">
-            MyLogo
+            My Portfolio
           </Link>
         </div>
 

@@ -11,7 +11,7 @@ export default function Page() {
             <h1 className="font-bold text-4xl mt-16 mb-12 tracking-tight text-center text-[var(--color4)] dark:text-gray-200">
                 My Blog
             </h1>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mx-12 md:mx-20 lg:mx-24 2xl:mx-60">
                 {posts.map((post) => (
                     <div
                         key={post.id}
