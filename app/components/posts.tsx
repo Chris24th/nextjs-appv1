@@ -9,19 +9,19 @@ const posts = [
     },
     {
         id: 2,
-        category: "Learning Logs",
-        title: "Understanding React Server Components",
-        description: "A beginner-friendly explanation of React Server Components and how I use them.",
+        category: "Development Insights",
+        title: "Is Laravel Complicated for Beginners?",
+        description: "Exploring Laravel’s learning curve and whether it’s suitable for beginners.",
         date: "2024-12-10",
-        slug: "understanding-react-server-components"
+        slug: "is-laravel-complicated-for-beginners"
     },
     {
         id: 3,
-        category: "Industry News",
-        title: "The Rise of Edge Computing in 2024",
-        description: "A quick overview of edge computing and its implications for web developers.",
+        category: "Web Development Trends",
+        title: "Next.js is the Best Framework for SEO",
+        description: "Understanding why Next.js is a powerful tool for enhancing your website's SEO performance.",
         date: "2024-12-08",
-        slug: "rise-of-edge-computing-2024"
+        slug: "nextjs-is-the-best-framework-for-seo"
     },
     {
         id: 4,
