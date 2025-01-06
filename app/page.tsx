@@ -27,13 +27,17 @@ export default function Home() {
 
           {/* Buttons Section */}
           <div className="flex space-x-2 mt-6">
-            <button className="bg-[var(--color3)] text-white hover:bg-teal-700 font-bold py-3 px-10 rounded-full shadow-md transition-all">
-              <span style={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.3)' }}>Inquiry</span>
-            </button>
-            <button className="bg-[var(--color2)] hover:bg-[var(--color1)] font-bold py-3 px-5 rounded-full shadow-md flex items-center transition-all">
-              <span style={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.3)' }}>Download CV</span>
-              <FaDownload style={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.3)' }} className="ml-2" />
-            </button>
+            <a href="https://www.linkedin.com/in/christopher-espenida-8402462a9/" target="_blank" rel="noopener noreferrer">
+              <button className="bg-[var(--color3)] text-white hover:bg-teal-700 font-bold py-3 px-10 rounded-full shadow-md transition-all">
+                <span style={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.3)' }}>Inquiry</span>
+              </button>
+            </a>
+            <a href="https://www.linkedin.com/in/christopher-espenida-8402462a9/" target="_blank" rel="noopener noreferrer">
+              <button className="bg-[var(--color2)] hover:bg-[var(--color1)] font-bold py-3 px-5 rounded-full shadow-md flex items-center transition-all">
+                <span style={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.3)' }}>Download CV</span>
+                <FaDownload style={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.3)' }} className="ml-2" />
+              </button>
+            </a>
           </div>
         </div>
 
