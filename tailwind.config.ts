@@ -14,6 +14,7 @@ export default {
         foreground: "var(--color2)",
         highlight: "var(--color3)",
         text: "var(--color4)",
+        codeBg: "var(--color5)",
       },
     },
   },
