@@ -81,16 +81,16 @@ export function Navbar() {
             className="relative flex flex-col items-center justify-center w-8 h-8 space-y-1 focus:outline-none"
           >
             <div
-              className={`w-6 h-1 bg-[var(--color4)] transition-all duration-300 ${isMenuOpen ? 'rotate-45 absolute w-3' : ''
+              className={`w-4 h-1 bg-[var(--color4)] transition-all duration-300 ${isMenuOpen ? 'rotate-45 absolute w-3' : ''
                 }`}
               style={{ transformOrigin: 'top left' }}
             ></div>
             <div
-              className={`w-6 h-1 bg-[var(--color4)] transition-all duration-300 ${isMenuOpen ? 'opacity-0' : ''
+              className={`w-4 h-1 bg-[var(--color4)] transition-all duration-300 ${isMenuOpen ? 'opacity-0' : ''
                 }`}
             ></div>
             <div
-              className={`w-6 h-1 bg-[var(--color4)] transition-all duration-300 ${isMenuOpen ? '-rotate-45 absolute w-3' : ''
+              className={`w-4 h-1 bg-[var(--color4)] transition-all duration-300 ${isMenuOpen ? '-rotate-45 absolute w-3' : ''
                 }`}
               style={{ transformOrigin: 'bottom left' }}
             ></div>

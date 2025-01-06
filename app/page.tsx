@@ -1,6 +1,7 @@
 'use client';
 import { FaDownload } from "react-icons/fa";
 import { useTheme } from '../context/ThemeContext';
+import Image from 'next/image';
 
 export default function Home() {
   const { theme } = useTheme();
@@ -40,9 +41,9 @@ export default function Home() {
         <div className="flex items-center justify-center">
           {
             theme === 'dark' ? (
-              <img src="sitting-dark.png" alt="Tech Image" />
+              <Image src="/sitting-dark.png" alt="Tech Image" width={600} height={600} layout="responsive" />
             ) : (
-              <img src="sitting-light.png" alt="Tech Image" />
+                <Image src="/sitting-light.png" alt="Tech Image" width={600} height={600} layout="responsive" />
             )
           }
         </div>
@@ -64,9 +65,9 @@ export default function Home() {
         <div className="flex items-center justify-center">
           {
             theme === 'dark' ? (
-              <img src="desk-dark.png" alt="Tech Image" />
+              <Image src="/desk-dark.png" alt="Tech Image" width={600} height={600} layout="responsive" />
             ) : (
-              <img src="desk-light.png" alt="Tech Image" />
+                <Image src="/desk-light.png" alt="Tech Image" width={600} height={600} layout="responsive" />
             )
           }
         </div>
