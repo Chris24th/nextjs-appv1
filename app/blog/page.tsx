@@ -1,4 +1,4 @@
-"use client"
+'use client';
 import { useState, useEffect, useRef } from 'react';
 import posts from '../components/posts';
 import lottie from 'lottie-web';
