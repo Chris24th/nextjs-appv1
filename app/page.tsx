@@ -9,6 +9,7 @@ import rocket from '../public/rocket.json';
 
 export default function Home() {
   const { theme } = useTheme();
+  if (!theme) return null;
   const [isDLHovered, setIsDLHovered] = useState(false);
   const [isInqHovered, setIsInqHovered] = useState(false);
   const [isClient, setIsClient] = useState(false);
@@ -17,7 +18,6 @@ export default function Home() {
     setIsClient(true);
   }, []);
 
-  if (!theme) return null;
 
   return (
     <main className="flex flex-col items-center justify-between p-6 m-10 bg-[var(--color1)] dark:bg-[var(--color4)] text-[var(--color4)] dark:text-[var(--color1)]">
