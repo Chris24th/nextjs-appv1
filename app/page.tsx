@@ -1,6 +1,6 @@
 'use client';
 import { useTheme } from '../context/ThemeContext';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Lottie from "lottie-react";
 import downloadLight from '../public/download-light.json';
@@ -11,6 +11,11 @@ export default function Home() {
   const { theme } = useTheme();
   const [isDLHovered, setIsDLHovered] = useState(false);
   const [isInqHovered, setIsInqHovered] = useState(false);
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   if (!theme) return null;
 
@@ -42,10 +47,12 @@ export default function Home() {
                 <span style={{ textShadow: '1px 1px 2px rgba(0, 0, 0, 0.3)' }}>
                   Inquiry
                 </span>
+                {isClient && (
                 <Lottie
                   animationData={rocket}
                   loop={isInqHovered}
                   className="ml-1 w-6 h-6" />
+                )}
               </button>
             </a>
             <a href="https://www.linkedin.com/in/christopher-espenida-8402462a9/" target="_blank" rel="noopener noreferrer">
@@ -56,7 +63,7 @@ export default function Home() {
                 <span style={{ textShadow: '1px 1px 2px rgba(0, 0, 0, 0.3)' }}>
                   Download CV
                 </span>
-                {
+                {isClient && (
                   theme === 'dark' ? (
                     <Lottie
                       animationData={downloadLight}
@@ -70,7 +77,7 @@ export default function Home() {
                         loop={isDLHovered}
                         className="ml-1 h-6" />
                     )
-                }
+                )}
               </button>
             </a>
           </div>
