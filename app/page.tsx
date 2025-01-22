@@ -13,11 +13,11 @@ export default function Home() {
   const [isInqHovered, setIsInqHovered] = useState(false);
   const [isClient, setIsClient] = useState(false);
 
-  if (!theme) return null;
-
   useEffect(() => {
     setIsClient(true);
   }, []);
+
+  if (!theme) return null;
 
   return (
     <main className="flex flex-col items-center justify-between p-6 m-10 bg-[var(--color1)] dark:bg-[var(--color4)] text-[var(--color4)] dark:text-[var(--color1)]">
