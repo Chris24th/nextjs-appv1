@@ -1,9 +1,8 @@
-import posts from '../components/posts'
-
-export const metadata = {
-    title: 'Blog',
-    description: 'Read my blog.',
-}
+"use client"
+import { useState, useEffect, useRef } from 'react';
+import posts from '../components/posts';
+import lottie from 'lottie-web';
+import rightArrow from '../../public/arrow-right.json';
 
 export default function Page() {
     return (
@@ -13,32 +12,72 @@ export default function Page() {
             </h1>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mx-12 md:mx-20 lg:mx-24 2xl:mx-60">
                 {posts.map((post) => (
-                    <div
-                        key={post.id}
-                        className="bg-[var(--color2)] shadow-md rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300"
-                    >
-                        <div className="p-6">
-                            <h2 className="font-semibold text-xl text-[var(--color4)] mb-3">
-                                {post.title}
-                            </h2>
-                            <p className="text-white-600  mb-4">
-                                {post.description}
-                            </p>
-                            <div className="flex justify-between items-center text-sm text-gray-400 dark:text-gray-500">
-                                <span>{post.date}</span>
-                                <a
-                                    href={`/blog/posts/${post.slug}`}
-                                    className="hover:text-[var(--color3)] font-medium"
-                                >
-                                    Read More →
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+                    <PostCard key={post.id} post={post} />
                 ))}
             </div>
         </section>
-
-    )
+    );
 }
 
+interface Post {
+    id: number;
+    title: string;
+    description: string;
+    date: string;
+    slug: string;
+}
+
+function PostCard({ post }: { post: Post }) {
+    const [isHovered, setIsHovered] = useState(false);
+    const lottieRef = useRef(null);
+
+    useEffect(() => {
+        if (lottieRef.current) {
+            const animation = lottie.loadAnimation({
+                container: lottieRef.current,
+                renderer: 'svg',
+                loop: true,
+                autoplay: false,
+                animationData: rightArrow,
+            });
+
+            if (isHovered) {
+                animation.setSubframe(true);
+                animation.play();
+            } else {
+                animation.stop();
+            }
+
+            return () => animation.destroy();
+        }
+    }, [isHovered]);
+
+    return (
+        <div
+            className="bg-[var(--color2)] shadow-md rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300"
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+        >
+            <div className="p-6">
+                <a href={`/blog/posts/${post.slug}`}>
+                    <h2 className="hover:text-[var(--color3)] font-semibold text-xl text-[var(--color4)] mb-3">
+                        {post.title}
+                    </h2>
+                </a>
+                <p className="text-white-600 mb-4">
+                    {post.description}
+                </p>
+                <div className="flex justify-between items-center text-sm text-gray-400 dark:text-gray-500">
+                    <span>{post.date}</span>
+                    <a
+                        href={`/blog/posts/${post.slug}`}
+                        className="hover:text-[var(--color3)] font-medium flex items-center"
+                    >
+                        Read More
+                        <div ref={lottieRef} className="ml-2 w-6 h-6 text-[var(--color3)]" />
+                    </a>
+                </div>
+            </div>
+        </div>
+    );
+}

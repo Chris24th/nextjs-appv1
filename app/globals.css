@@ -6,9 +6,9 @@
 :root {
   --color1: #F7F8FA;
     /* Background */
-    --color2: #EEEEEE;
+    --color2: #fafafa;
     /* Secondary elements */
-    --color3: goldenrod;
+    --color3: #f0cc00;
     /* Highlight */
     --color4: #222831;
     /* Text */
@@ -22,7 +22,7 @@
   /* Background */
   --color2: #393E46;
   /* Secondary elements */
-  --color3: #00ADB5;
+  --color3: #00d2dd;
   /* Highlight */
   --color4: #EEEEEE;
   /* Text */

@@ -1,10 +1,16 @@
 'use client';
-import { FaDownload } from "react-icons/fa";
 import { useTheme } from '../context/ThemeContext';
+import { useState } from 'react';
 import Image from 'next/image';
+import Lottie from "lottie-react";
+import downloadLight from '../public/download-light.json';
+import downloadDark from '../public/download-dark.json';
+import rocket from '../public/rocket.json';
 
 export default function Home() {
   const { theme } = useTheme();
+  const [isDLHovered, setIsDLHovered] = useState(false);
+  const [isInqHovered, setIsInqHovered] = useState(false);
 
   if (!theme) return null;
 
@@ -27,15 +33,44 @@ export default function Home() {
 
           {/* Buttons Section */}
           <div className="flex space-x-2 mt-6">
-            <a href="https://www.linkedin.com/in/christopher-espenida-8402462a9/" target="_blank" rel="noopener noreferrer">
-              <button className="bg-[var(--color3)] text-white hover:bg-teal-700 font-bold py-3 px-10 rounded-full shadow-md transition-all">
-                <span style={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.3)' }}>Inquiry</span>
+            <a href="https://www.linkedin.com/in/christopher-espenida-8402462a9/ 
+            // " target="_blank" rel="noopener noreferrer">
+              <button
+                onMouseEnter={() => setIsInqHovered(true)}
+                onMouseLeave={() => setIsInqHovered(false)}
+                className="bg-[var(--color3)] text-white font-bold py-3 px-10 rounded-full shadow-md flex items-center transition-all">
+                <span style={{ textShadow: '1px 1px 2px rgba(0, 0, 0, 0.3)' }}>
+                  Inquiry
+                </span>
+                <Lottie
+                  animationData={rocket}
+                  loop={isInqHovered}
+                  className="ml-1 w-6 h-6" />
               </button>
             </a>
             <a href="https://www.linkedin.com/in/christopher-espenida-8402462a9/" target="_blank" rel="noopener noreferrer">
-              <button className="bg-[var(--color2)] hover:bg-[var(--color1)] font-bold py-3 px-5 rounded-full shadow-md flex items-center transition-all">
-                <span style={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.3)' }}>Download CV</span>
-                <FaDownload style={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.3)' }} className="ml-2" />
+              <button
+                onMouseEnter={() => setIsDLHovered(true)}
+                onMouseLeave={() => setIsDLHovered(false)}
+                className="bg-[var(--color2)] hover:bg-[var(--color1)] font-bold py-3 px-5 rounded-full shadow-md flex items-center transition-all">
+                <span style={{ textShadow: '1px 1px 2px rgba(0, 0, 0, 0.3)' }}>
+                  Download CV
+                </span>
+                {
+                  theme === 'dark' ? (
+                    <Lottie
+                      animationData={downloadLight}
+                      loop={isDLHovered}
+                      className="ml-1 h-6" />
+                  )
+                    :
+                    (
+                      <Lottie
+                        animationData={downloadDark}
+                        loop={isDLHovered}
+                        className="ml-1 h-6" />
+                    )
+                }
               </button>
             </a>
           </div>
