@@ -52,11 +52,7 @@ function PostCard({ post }: { post: Post }) {
                         className="hover:text-[var(--color3)] font-medium flex items-center"
                     >
                         Read More
-                        <Lottie
-                            animationData={rightArrow}
-                            className='h-6 ml-1'
-                            loop={isHovered}
-                        />
+
                     </a>
                 </div>
             </div>
