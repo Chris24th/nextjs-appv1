@@ -13,6 +13,8 @@ export const ThemeProvider = ({ children }) => {
             if (savedTheme) {
                 setTheme(savedTheme);
             }
+        } else {
+            console.warn('document is not defined');
         }
     }, []);
 
@@ -21,6 +23,8 @@ export const ThemeProvider = ({ children }) => {
         setTheme(newTheme);
         if (typeof document !== 'undefined') {
             document.documentElement.setAttribute('data-theme', newTheme);
+        } else {
+            console.warn('document is not defined');
         }
     };
 
@@ -33,7 +37,7 @@ export const ThemeProvider = ({ children }) => {
 
 export const useTheme = () => {
     const context = useContext(ThemeContext);
-    if (!context) {
+    if (context === undefined) {
         throw new Error('useTheme must be used within a ThemeProvider');
     }
     return context;
