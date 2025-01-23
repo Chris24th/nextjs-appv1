@@ -1,5 +1,11 @@
 'use client';
+import { useState } from 'react';
+import dynamic from 'next/dynamic';
 import posts from '../components/posts';
+import rightArrow from '../../public/arrow-right.json';
+
+// Dynamically import Lottie to ensure it only runs on the client side
+const Lottie = dynamic(() => import('lottie-react'), { ssr: false });
 
 export default function Page() {
     return (
@@ -25,11 +31,13 @@ interface Post {
 }
 
 function PostCard({ post }: { post: Post }) {
+    const [isHovered, setIsHovered] = useState(false);
 
     return (
         <div
             className="bg-[var(--color2)] shadow-md rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300"
-
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
         >
             <div className="p-6">
                 <a href={`/blog/posts/${post.slug}`}>
@@ -47,7 +55,11 @@ function PostCard({ post }: { post: Post }) {
                         className="hover:text-[var(--color3)] font-medium flex items-center"
                     >
                         Read More
-
+                        <Lottie
+                            animationData={rightArrow}
+                            className='h-6 ml-1'
+                            loop={isHovered}
+                        />
                     </a>
                 </div>
             </div>
