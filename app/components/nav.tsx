@@ -3,11 +3,13 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { useTheme } from '../../context/ThemeContext';
 import { FaCloudSun, FaCloudMoon } from 'react-icons/fa';
-import Lottie from 'lottie-react';
 //import hamburger from '../../public/hamburger.json';
 import home from '../../public/home.json';
 import pencil from '../../public/pencil.json';
 import postbox from '../../public/postbox.json';
+import dynamic from 'next/dynamic';
+
+const Lottie = dynamic(() => import('lottie-react'), { ssr: false });
 
 export function Navbar() {
   const { theme, toggleTheme } = useTheme();

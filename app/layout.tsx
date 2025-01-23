@@ -1,4 +1,3 @@
-'use client';
 import localFont from "next/font/local";
 import Footer from './components/footer';
 import { Navbar } from './components/nav'

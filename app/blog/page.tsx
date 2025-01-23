@@ -1,8 +1,10 @@
 'use client';
 import { useState } from 'react';
 import posts from '../components/posts';
-import Lottie from 'lottie-react';
 import rightArrow from '../../public/arrow-right.json';
+import dynamic from 'next/dynamic';
+
+const Lottie = dynamic(() => import('lottie-react'), { ssr: false });
 
 export default function Page() {
     return (

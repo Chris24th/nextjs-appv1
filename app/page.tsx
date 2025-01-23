@@ -1,21 +1,18 @@
 'use client';
 import { useTheme } from '../context/ThemeContext';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Image from 'next/image';
-import Lottie from "lottie-react";
 import downloadLight from '../public/download-light.json';
 import downloadDark from '../public/download-dark.json';
 import rocket from '../public/rocket.json';
+import dynamic from 'next/dynamic';
+
+const Lottie = dynamic(() => import('lottie-react'), { ssr: false });
 
 export default function Home() {
   const { theme } = useTheme();
   const [isDLHovered, setIsDLHovered] = useState(false);
   const [isInqHovered, setIsInqHovered] = useState(false);
-  const [isClient, setIsClient] = useState(false);
-
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
 
   if (!theme) return null;
 
@@ -47,12 +44,10 @@ export default function Home() {
                 <span style={{ textShadow: '1px 1px 2px rgba(0, 0, 0, 0.3)' }}>
                   Inquiry
                 </span>
-                {isClient && (
                 <Lottie
                   animationData={rocket}
                   loop={isInqHovered}
                   className="ml-1 w-6 h-6" />
-                )}
               </button>
             </a>
             <a href="https://www.linkedin.com/in/christopher-espenida-8402462a9/" target="_blank" rel="noopener noreferrer">
@@ -63,8 +58,7 @@ export default function Home() {
                 <span style={{ textShadow: '1px 1px 2px rgba(0, 0, 0, 0.3)' }}>
                   Download CV
                 </span>
-                {isClient && (
-                  theme === 'dark' ? (
+                {theme === 'dark' ? (
                     <Lottie
                       animationData={downloadLight}
                       loop={isDLHovered}
@@ -75,9 +69,8 @@ export default function Home() {
                       <Lottie
                         animationData={downloadDark}
                         loop={isDLHovered}
-                        className="ml-1 h-6" />
-                    )
-                )}
+                      className="ml-1 h-6" />
+                  )}
               </button>
             </a>
           </div>
