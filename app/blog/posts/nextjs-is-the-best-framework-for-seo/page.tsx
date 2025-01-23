@@ -1,9 +1,11 @@
+'use client';
 import PostLayout from "../../../components/postLayout";
 
 export default function Blog1() {
     return <PostLayout title={"Next.js is the Best Framework for SEO"} content={BlogContents} />;
+}
 
-    function BlogContents() {
+export function BlogContents() {
         return (
             <div className="space-y-8">
                 <p className="text-lg text-[var(--color4)] leading-relaxed text-justify">
@@ -44,4 +46,4 @@ export default function Blog1() {
             </div>
         );
     }
-}
+
