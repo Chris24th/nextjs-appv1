@@ -1,7 +1,7 @@
 'use client';
-import { useState, useEffect, useRef } from 'react';
+import { useState } from 'react';
 import posts from '../components/posts';
-import lottie from 'lottie-web';
+import Lottie from 'lottie-react';
 import rightArrow from '../../public/arrow-right.json';
 
 export default function Page() {
@@ -29,28 +29,6 @@ interface Post {
 
 function PostCard({ post }: { post: Post }) {
     const [isHovered, setIsHovered] = useState(false);
-    const lottieRef = useRef(null);
-
-    useEffect(() => {
-        if (lottieRef.current) {
-            const animation = lottie.loadAnimation({
-                container: lottieRef.current,
-                renderer: 'svg',
-                loop: true,
-                autoplay: false,
-                animationData: rightArrow,
-            });
-
-            if (isHovered) {
-                animation.setSubframe(true);
-                animation.play();
-            } else {
-                animation.stop();
-            }
-
-            return () => animation.destroy();
-        }
-    }, [isHovered]);
 
     return (
         <div
@@ -74,7 +52,11 @@ function PostCard({ post }: { post: Post }) {
                         className="hover:text-[var(--color3)] font-medium flex items-center"
                     >
                         Read More
-                        <div ref={lottieRef} className="ml-2 w-6 h-6 text-[var(--color3)]" />
+                        <Lottie
+                            animationData={rightArrow}
+                            className='h-6 ml-1'
+                            loop={isHovered}
+                        />
                     </a>
                 </div>
             </div>
