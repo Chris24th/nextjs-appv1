@@ -5,7 +5,7 @@ export default function Blog2() {
     return <PostLayout title={"Is Laravel Complicated for Beginners?"} content={BlogContents} />;
 }
 
-export function BlogContents() {
+function BlogContents() {
         return (
             <div className="space-y-6">
                 <p className="text-lg text-[var(--color4)] leading-relaxed text-justify">

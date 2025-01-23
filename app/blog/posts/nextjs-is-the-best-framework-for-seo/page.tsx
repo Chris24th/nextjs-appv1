@@ -5,7 +5,7 @@ export default function Blog3() {
     return <PostLayout title={"Next.js is the Best Framework for SEO"} content={BlogContents} />;
 }
 
-export function BlogContents() {
+function BlogContents() {
         return (
             <div className="space-y-8">
                 <p className="text-lg text-[var(--color4)] leading-relaxed text-justify">
