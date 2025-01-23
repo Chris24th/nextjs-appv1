@@ -1,8 +1,6 @@
 'use client';
 import { useState } from 'react';
 import posts from '../components/posts';
-import Lottie from 'lottie-react';
-import rightArrow from '../../public/arrow-right.json';
 
 export default function Page() {
     return (
@@ -28,13 +26,11 @@ interface Post {
 }
 
 function PostCard({ post }: { post: Post }) {
-    const [isHovered, setIsHovered] = useState(false);
 
     return (
         <div
             className="bg-[var(--color2)] shadow-md rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300"
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
+
         >
             <div className="p-6">
                 <a href={`/blog/posts/${post.slug}`}>
