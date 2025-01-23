@@ -1,7 +1,7 @@
 'use client';
 import PostLayout from "../../../components/postLayout";
 
-export default function Blog1() {
+export default function Blog3() {
     return <PostLayout title={"Next.js is the Best Framework for SEO"} content={BlogContents} />;
 }
 

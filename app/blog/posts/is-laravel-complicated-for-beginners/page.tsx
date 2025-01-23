@@ -1,9 +1,10 @@
 'use client';
 import PostLayout from "../../../components/postLayout";
 
-export default function Blog1() {
+export default function Blog2() {
     return <PostLayout title={"Is Laravel Complicated for Beginners?"} content={BlogContents} />;
 }
+
 export function BlogContents() {
         return (
             <div className="space-y-6">
