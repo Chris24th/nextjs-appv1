@@ -8,19 +8,24 @@ export const ThemeProvider = ({ children }) => {
     const [theme, setTheme] = useState('light');
 
     useEffect(() => {
-        // Get saved theme from localStorage or default to 'light'
-        const savedTheme = localStorage.getItem('theme');
-        setTheme(savedTheme || 'light');
-
-        // Set the initial theme based on the saved theme
-        document.documentElement.setAttribute('data-theme', savedTheme || 'light');
+        if (typeof document !== 'undefined') {
+            const savedTheme = document.documentElement.getAttribute('data-theme');
+            if (savedTheme) {
+                setTheme(savedTheme);
+            }
+        } else {
+            console.warn('document is not defined');
+        }
     }, []);
 
     const toggleTheme = () => {
         const newTheme = theme === 'light' ? 'dark' : 'light';
         setTheme(newTheme);
-        document.documentElement.setAttribute('data-theme', newTheme);
-        localStorage.setItem('theme', newTheme);
+        if (typeof document !== 'undefined') {
+            document.documentElement.setAttribute('data-theme', newTheme);
+        } else {
+            console.warn('document is not defined');
+        }
     };
 
     return (
@@ -32,7 +37,7 @@ export const ThemeProvider = ({ children }) => {
 
 export const useTheme = () => {
     const context = useContext(ThemeContext);
-    if (!context) {
+    if (context === undefined) {
         throw new Error('useTheme must be used within a ThemeProvider');
     }
     return context;

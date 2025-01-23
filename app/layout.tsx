@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import localFont from "next/font/local";
 import Footer from './components/footer';
 import { Navbar } from './components/nav'
@@ -16,10 +15,10 @@ const geistMono = localFont({
   weight: "100 900",
 });
 
-export const metadata: Metadata = {
-  title: "わたしのPortfolioです",
-  description: "My Portfolio",
-};
+// export const metadata: Metadata = {
+//   title: "わたしのPortfolioです",
+//   description: "My Portfolio",
+// };
 
 export default function RootLayout({
   children,

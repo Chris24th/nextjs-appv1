@@ -3,24 +3,33 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { useTheme } from '../../context/ThemeContext';
 import { FaCloudSun, FaCloudMoon } from 'react-icons/fa';
+//import hamburger from '../../public/hamburger.json';
+import home from '../../public/home.json';
+import pencil from '../../public/pencil.json';
+import postbox from '../../public/postbox.json';
+import dynamic from 'next/dynamic';
 
-const navItems = {
-  '/': {
-    name: 'Home',
-  },
-  '/blog': {
-    name: 'Blog',
-  },
-  '/contact': {
-    name: 'Contact',
-  },
-};
+const Lottie = dynamic(() => import('lottie-react'), { ssr: false });
 
 export function Navbar() {
   const { theme, toggleTheme } = useTheme();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
   if (!theme) return null;
+
+  const navItems = {
+    '/': {
+      name: 'Home',
+      icon: home,
+    },
+    '/blog': {
+      name: 'Blog',
+      icon: pencil,
+    },
+    '/contact': {
+      name: 'Contact',
+      icon: postbox,
+    },
+  };
 
   return (
     <header className={`fixed top-0 left-0 w-full ${isMenuOpen ? 'bg-[var(--color1)]' : 'backdrop-blur-md'} shadow-md z-50`}>
@@ -33,16 +42,21 @@ export function Navbar() {
         </div>
 
         {/* Navigation Items */}
-        <nav className="hidden md:flex items-center space-x-6">
-          {Object.entries(navItems).map(([path, { name }]) => (
+        <nav className="hidden md:flex items-center">
+          {Object.entries(navItems).map(([path, { name, icon }]) => (
             <Link
               key={path}
               href={path}
-              className="group transition-all duration-100 hover:text-[var(--color3)] relative py-2 px-3"
+              className="group hover:text-[var(--color3)] relative py-2 px-3 pl-8"
             >
-              <span className="relative transition-all duration-300 ease-in-out">
-                {name}
-                <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-[var(--color3)] group-hover:w-full transition-all duration-300"></span>
+              <span className="flex items-center float-right relative transition-all duration-300 ease-in-out group">
+                <Lottie
+                  animationData={icon}
+                  loop={true}
+                  className="h-6 mr-1 hidden transition-transform duration-300 ease-in-out transform group-hover:scale-110 group-hover:block"
+                />
+                <span className="py-1">{name}</span>
+                <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-[var(--color3)] group-hover:w-full transition-all duration-300 ease-in-out"></span>
               </span>
             </Link>
           ))}
