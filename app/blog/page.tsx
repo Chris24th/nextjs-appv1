@@ -1,5 +1,4 @@
 'use client';
-import { useState } from 'react';
 import posts from '../components/posts';
 
 export default function Page() {
