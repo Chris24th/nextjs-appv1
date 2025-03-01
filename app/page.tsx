@@ -11,7 +11,7 @@ const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
 
 export default function Home() {
   const { theme } = useTheme();
-  const [isDLHovered, setIsDLHovered] = useState(false);
+  //const [isDLHovered, setIsDLHovered] = useState(false);
   const [isInqHovered, setIsInqHovered] = useState(false);
 
   if (!theme) return null;
