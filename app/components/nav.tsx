@@ -1,15 +1,15 @@
-'use client';
-import Link from 'next/link';
-import { useState } from 'react';
-import { useTheme } from '../../context/ThemeContext';
-import { FaCloudSun, FaCloudMoon } from 'react-icons/fa';
+"use client";
+import Link from "next/link";
+import { useState } from "react";
+import { useTheme } from "../../context/ThemeContext";
+import { FaCloudSun, FaCloudMoon } from "react-icons/fa";
 //import hamburger from '../../public/hamburger.json';
-import home from '../../public/home.json';
-import pencil from '../../public/pencil.json';
-import postbox from '../../public/postbox.json';
-import dynamic from 'next/dynamic';
+import home from "../../public/home.json";
+import pencil from "../../public/pencil.json";
+import postbox from "../../public/postbox.json";
+import dynamic from "next/dynamic";
 
-const Lottie = dynamic(() => import('lottie-react'), { ssr: false });
+const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
 
 export function Navbar() {
   const { theme, toggleTheme } = useTheme();
@@ -17,27 +17,31 @@ export function Navbar() {
   if (!theme) return null;
 
   const navItems = {
-    '/': {
-      name: 'Home',
+    "/": {
+      name: "Home",
       icon: home,
     },
-    '/blog': {
-      name: 'Blog',
+    "/blog": {
+      name: "Blog",
       icon: pencil,
     },
-    '/contact': {
-      name: 'Contact',
+    "/contact": {
+      name: "Contact",
       icon: postbox,
     },
   };
 
   return (
-    <header className={`fixed top-0 left-0 w-full ${isMenuOpen ? 'bg-[var(--color1)]' : 'backdrop-blur-md'} shadow-md z-50`}>
+    <header
+      className={`fixed top-0 left-0 w-full ${
+        isMenuOpen ? "bg-[var(--color1)]" : "backdrop-blur-md"
+      } shadow-md z-50`}
+    >
       <div className="container mx-auto flex items-center justify-between px-6 py-2">
         {/* Logo Section */}
         <div className="flex items-center">
           <Link href="/" className="text-xl font-bold text-[var(--color4)]">
-            My Portfolio
+            Chris24th
           </Link>
         </div>
 
@@ -60,7 +64,6 @@ export function Navbar() {
               </span>
             </Link>
           ))}
-
         </nav>
 
         {/* Theme Toggle Button */}
@@ -70,7 +73,7 @@ export function Navbar() {
             className="flex items-center px-4 py-2 rounded-lg cursor-pointer transition-all"
           >
             <span className="mr-2 text-sm font-medium text-[var(--color4)]">
-              {theme === 'light' ? (
+              {theme === "light" ? (
                 <FaCloudSun className="text-[var(--color3)] mr-2" />
               ) : (
                 <FaCloudMoon className="text-[var(--color3)] mr-2" />
@@ -81,8 +84,11 @@ export function Navbar() {
               className={`relative w-12 h-6 rounded-full bg-[var(--color2)] transition-all duration-300 ease-in-out`}
             >
               <div
-                className={`absolute w-6 h-6 ${theme === 'light' ? 'bg-gray-300' : 'bg-gray-500'} rounded-full transition-all duration-300 ease-in-out ${theme === 'light' ? 'left-0' : 'left-6'
-                  }`}
+                className={`absolute w-6 h-6 ${
+                  theme === "light" ? "bg-gray-300" : "bg-gray-500"
+                } rounded-full transition-all duration-300 ease-in-out ${
+                  theme === "light" ? "left-0" : "left-6"
+                }`}
               ></div>
             </div>
           </button>
@@ -95,18 +101,21 @@ export function Navbar() {
             className="relative flex flex-col items-center justify-center w-8 h-8 space-y-1 focus:outline-none"
           >
             <div
-              className={`w-4 h-1 bg-[var(--color4)] transition-all duration-300 ${isMenuOpen ? 'rotate-45 absolute w-3' : ''
-                }`}
-              style={{ transformOrigin: 'top left' }}
+              className={`w-4 h-1 bg-[var(--color4)] transition-all duration-300 ${
+                isMenuOpen ? "rotate-45 absolute w-3" : ""
+              }`}
+              style={{ transformOrigin: "top left" }}
             ></div>
             <div
-              className={`w-4 h-1 bg-[var(--color4)] transition-all duration-300 ${isMenuOpen ? 'opacity-0' : ''
-                }`}
+              className={`w-4 h-1 bg-[var(--color4)] transition-all duration-300 ${
+                isMenuOpen ? "opacity-0" : ""
+              }`}
             ></div>
             <div
-              className={`w-4 h-1 bg-[var(--color4)] transition-all duration-300 ${isMenuOpen ? '-rotate-45 absolute w-3' : ''
-                }`}
-              style={{ transformOrigin: 'bottom left' }}
+              className={`w-4 h-1 bg-[var(--color4)] transition-all duration-300 ${
+                isMenuOpen ? "-rotate-45 absolute w-3" : ""
+              }`}
+              style={{ transformOrigin: "bottom left" }}
             ></div>
           </button>
         </div>
@@ -114,8 +123,9 @@ export function Navbar() {
 
       {/* Mobile Menu */}
       <div
-        className={`absolute top-12 left-0 w-full bg-[var(--color1)] backdrop-blur-md md:hidden transition-all duration-500 ease-in-out ${isMenuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
-          } overflow-hidden`}
+        className={`absolute top-12 left-0 w-full bg-[var(--color1)] backdrop-blur-md md:hidden transition-all duration-500 ease-in-out ${
+          isMenuOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
+        } overflow-hidden`}
       >
         <nav className="flex flex-col items-center space-y-4 py-4">
           {Object.entries(navItems).map(([path, { name }]) => (
@@ -136,7 +146,7 @@ export function Navbar() {
             className="flex items-center px-4 py-2 rounded-lg cursor-pointer transition-all"
           >
             <span className="mr-2 text-sm font-medium text-[var(--color4)]">
-              {theme === 'light' ? (
+              {theme === "light" ? (
                 <FaCloudSun className="text-[var(--color3)] mr-2" />
               ) : (
                 <FaCloudMoon className="text-[var(--color3)] mr-2" />
@@ -144,17 +154,19 @@ export function Navbar() {
             </span>
 
             <div
-              className={`relative w-12 h-6 rounded-full ${theme === 'light' ? 'bg-gray-300' : 'bg-gray-700'}`}
+              className={`relative w-12 h-6 rounded-full ${
+                theme === "light" ? "bg-gray-300" : "bg-gray-700"
+              }`}
             >
               <div
-                className={`absolute w-6 h-6 bg-white rounded-full transition-all duration-300 ease-in-out ${theme === 'light' ? 'left-0' : 'left-6'
-                  }`}
+                className={`absolute w-6 h-6 bg-white rounded-full transition-all duration-300 ease-in-out ${
+                  theme === "light" ? "left-0" : "left-6"
+                }`}
               ></div>
             </div>
           </button>
         </nav>
       </div>
-
     </header>
   );
 }
