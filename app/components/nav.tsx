@@ -3,7 +3,6 @@ import Link from "next/link";
 import { useState } from "react";
 import { useTheme } from "../../context/ThemeContext";
 import { FaCloudSun, FaCloudMoon } from "react-icons/fa";
-//import hamburger from '../../public/hamburger.json';
 import home from "../../public/home.json";
 import pencil from "../../public/pencil.json";
 import postbox from "../../public/postbox.json";
@@ -11,7 +10,7 @@ import dynamic from "next/dynamic";
 
 interface NavItem {
   name: string;
-  icon: any;
+  icon: object;
   dropdown?: {
     [key: string]: {
       subName: string;
