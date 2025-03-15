@@ -4,34 +4,33 @@
 
 /* Default light theme (light mode) */
 :root {
-  --color1: #F7F8FA;
-    /* Background */
-    --color2: #fafafa;
-    /* Secondary elements */
-    --color3: #f0cc00;
-    /* Highlight */
-    --color4: #222831;
-    /* Text */
-    --color5: #1F2937;
-      /* codeBg */
+  --color1: #f7f8fa;
+  /* Background */
+  --color2: #fafafa;
+  /* Secondary elements */
+  --color3: #f0cc00;
+  /* Highlight */
+  --color4: #222831;
+  /* Text */
+  --color5: #1f2937;
+  /* codeBg */
 }
 
 /* Dark theme (when class or media query is active) */
 [data-theme="dark"] {
   --color1: #222831;
   /* Background */
-  --color2: #393E46;
+  --color2: #393e46;
   /* Secondary elements */
   --color3: #00d2dd;
   /* Highlight */
-  --color4: #EEEEEE;
+  --color4: #eeeeee;
   /* Text */
-  --color4: #EEEEEE;
-    /* Text */
-    --color5: #111827;
-    /* codeBg */
+  --color4: #eeeeee;
+  /* Text */
+  --color5: #111827;
+  /* codeBg */
 }
-
 
 body {
   /* color: var(--foreground);
@@ -39,3 +38,16 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.hamburger1 {
+  transform: rotate(40deg);
+  position: absolute;
+  width: 0.7rem;
+  margin-left: 0.5px;
+  margin-bottom: -4px;
+}
+
+.hamburger2 {
+  transform: rotate(-40deg);
+  position: absolute;
+  width: 0.75rem;
+}
