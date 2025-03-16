@@ -1,11 +1,12 @@
 "use client";
 import { useTheme } from "../context/ThemeContext";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 //import downloadLight from '../public/download-light.json';
 //import downloadDark from '../public/download-dark.json';
 import rocket from "../public/rocket.json";
 import dynamic from "next/dynamic";
+import Experience from "./home/Experience";
 
 const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
 
@@ -13,8 +14,33 @@ export default function Home() {
   const { theme } = useTheme();
   //const [isDLHovered, setIsDLHovered] = useState(false);
   const [isInqHovered, setIsInqHovered] = useState(false);
+  const subPath = window.location.pathname.split("/").pop(); // Get the subPath from the URL
+
+  useEffect(() => {
+    if (subPath) {
+      const targetSection = document.getElementById(subPath);
+      if (targetSection) {
+        targetSection.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+    console.log(subPath);
+  }, [subPath]);
 
   if (!theme) return null;
+
+  // useEffect(() => {
+  //   // Get the query parameters
+  //   const params = new URLSearchParams(window.location.search);
+  //   const scrollTo = params.get("home");
+
+  //   // If the scrollTo parameter exists, scroll to the respective section
+  //   if (scrollTo) {
+  //     const section = document.getElementById(scrollTo);
+  //     if (section) {
+  //       section.scrollIntoView({ behavior: "smooth" });
+  //     }
+  //   }
+  // }, []);
 
   return (
     <main className="flex flex-col items-center justify-between p-6 m-10 bg-[var(--color1)] dark:bg-[var(--color4)] text-[var(--color4)] dark:text-[var(--color1)]">
@@ -135,6 +161,33 @@ export default function Home() {
           )}
         </div>
       </div>
+
+      {/* Experience Section */}
+      <Experience />
+      <section
+        id="skills"
+        className="flex items-center justify-between w-full p-6 rounded-md shadow-md mt-10"
+      >
+        <h2 className="text-3xl font-bold">Skills</h2>
+        <p>Coming soon.</p>
+        <Lottie
+          animationData={rocket}
+          loop={true}
+          className="bg-[var(--color3)] rounded-full ml-1 w-20 h-20 p-3"
+        />
+      </section>
+      <section
+        id="projects"
+        className="flex items-center justify-between w-full p-6 rounded-md shadow-md mt-10"
+      >
+        <h2 className="text-3xl font-bold">Projects</h2>
+        <p>Coming soon.</p>
+        <Lottie
+          animationData={rocket}
+          loop={true}
+          className="bg-[var(--color3)] rounded-full ml-1 w-20 h-20 p-3"
+        />
+      </section>
     </main>
   );
 }
