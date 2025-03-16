@@ -7,7 +7,7 @@ import Link from "next/link";
 
 const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
 
-export default function Page() {
+export default function Blogs() {
   return (
     <section className="p-10">
       <h1 className="font-bold text-4xl mt-16 mb-12 tracking-tight text-center text-[var(--color4)] dark:text-gray-200">

@@ -30,13 +30,13 @@ export function Navbar() {
       name: "Home",
       icon: home,
       dropdown: {
-        "/home/experience": {
+        experience: {
           subName: "Experience",
         },
-        "/home/skills": {
+        skills: {
           subName: "Skills",
         },
-        "/home/projects": {
+        projects: {
           subName: "Projects",
         },
       },
@@ -50,6 +50,19 @@ export function Navbar() {
       icon: postbox,
     },
   };
+
+  // const handleScroll = (
+  //   id: string,
+  //   e: React.MouseEvent<HTMLSpanElement, MouseEvent>
+  // ) => {
+  //   // Prevent default behavior of the link
+  //   e.preventDefault();
+
+  //   // Navigate to the homepage first
+  //   window.location.href = `/?home=${id}`;
+
+  //   // Wait for the homepage to load, then scroll to the section
+  // };
 
   const renderNavItem = ([path, { name, icon, dropdown }]: [
     string,
@@ -78,10 +91,11 @@ export function Navbar() {
           {Object.entries(dropdown).map(([subPath, { subName }]) => (
             <Link
               key={subPath}
-              href={subPath}
               className="flex py-1 px-4 text-xs hover:text-[var(--color3)]"
+              href={`/#${subPath}`}
+              passHref
             >
-              <span>{subName}</span>
+              {subName}
             </Link>
           ))}
         </div>
@@ -90,7 +104,7 @@ export function Navbar() {
   );
 
   return (
-    <div className="">
+    <div>
       <header className="fixed top-0 left-0 w-full backdrop-blur-md shadow-md z-50">
         <div className="container mx-auto flex items-center justify-between px-6 py-2">
           {/* Logo Section */}

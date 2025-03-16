@@ -1,18 +1,27 @@
 "use client";
 import { useTheme } from "../context/ThemeContext";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
-//import downloadLight from '../public/download-light.json';
-//import downloadDark from '../public/download-dark.json';
 import rocket from "../public/rocket.json";
 import dynamic from "next/dynamic";
+import Experience from "./home/Experience";
 
 const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
 
 export default function Home() {
   const { theme } = useTheme();
-  //const [isDLHovered, setIsDLHovered] = useState(false);
   const [isInqHovered, setIsInqHovered] = useState(false);
+
+  useEffect(() => {
+    const subPath = window.location.pathname.split("/").pop();
+    if (subPath) {
+      const targetSection = document.getElementById(subPath);
+      if (targetSection) {
+        targetSection.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+    console.log(subPath);
+  }, []);
 
   if (!theme) return null;
 
@@ -54,29 +63,6 @@ export default function Home() {
                 />
               </button>
             </a>
-            {/* <a href="https://www.linkedin.com/in/christopher-espenida-8402462a9/" target="_blank" rel="noopener noreferrer">
-              <button
-                onMouseEnter={() => setIsDLHovered(true)}
-                onMouseLeave={() => setIsDLHovered(false)}
-                className="bg-[var(--color2)] hover:bg-[var(--color1)] font-bold py-3 px-5 rounded-full shadow-md flex items-center transition-all">
-                <span style={{ textShadow: '1px 1px 2px rgba(0, 0, 0, 0.3)' }}>
-                  Download CV
-                </span>
-                {theme === 'dark' ? (
-                    <Lottie
-                      animationData={downloadLight}
-                      loop={isDLHovered}
-                      className="ml-1 h-6" />
-                  )
-                    :
-                    (
-                      <Lottie
-                        animationData={downloadDark}
-                        loop={isDLHovered}
-                      className="ml-1 h-6" />
-                  )}
-              </button>
-            </a> */}
           </div>
         </div>
 
@@ -135,6 +121,33 @@ export default function Home() {
           )}
         </div>
       </div>
+
+      {/* Experience Section */}
+      <Experience />
+      <section
+        id="skills"
+        className="flex items-center justify-between w-full p-6 rounded-md shadow-md mt-10"
+      >
+        <h2 className="text-3xl font-bold">Skills</h2>
+        <p>Coming soon.</p>
+        <Lottie
+          animationData={rocket}
+          loop={true}
+          className="bg-[var(--color3)] rounded-full ml-1 w-20 h-20 p-3"
+        />
+      </section>
+      <section
+        id="projects"
+        className="flex items-center justify-between w-full p-6 rounded-md shadow-md mt-10"
+      >
+        <h2 className="text-3xl font-bold">Projects</h2>
+        <p>Coming soon.</p>
+        <Lottie
+          animationData={rocket}
+          loop={true}
+          className="bg-[var(--color3)] rounded-full ml-1 w-20 h-20 p-3"
+        />
+      </section>
     </main>
   );
 }
