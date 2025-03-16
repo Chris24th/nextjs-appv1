@@ -2,8 +2,6 @@
 import { useTheme } from "../context/ThemeContext";
 import { useEffect, useState } from "react";
 import Image from "next/image";
-//import downloadLight from '../public/download-light.json';
-//import downloadDark from '../public/download-dark.json';
 import rocket from "../public/rocket.json";
 import dynamic from "next/dynamic";
 import Experience from "./home/Experience";
@@ -12,11 +10,10 @@ const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
 
 export default function Home() {
   const { theme } = useTheme();
-  //const [isDLHovered, setIsDLHovered] = useState(false);
   const [isInqHovered, setIsInqHovered] = useState(false);
-  const subPath = window.location.pathname.split("/").pop(); // Get the subPath from the URL
 
   useEffect(() => {
+    const subPath = window.location.pathname.split("/").pop();
     if (subPath) {
       const targetSection = document.getElementById(subPath);
       if (targetSection) {
@@ -24,23 +21,9 @@ export default function Home() {
       }
     }
     console.log(subPath);
-  }, [subPath]);
+  }, []);
 
   if (!theme) return null;
-
-  // useEffect(() => {
-  //   // Get the query parameters
-  //   const params = new URLSearchParams(window.location.search);
-  //   const scrollTo = params.get("home");
-
-  //   // If the scrollTo parameter exists, scroll to the respective section
-  //   if (scrollTo) {
-  //     const section = document.getElementById(scrollTo);
-  //     if (section) {
-  //       section.scrollIntoView({ behavior: "smooth" });
-  //     }
-  //   }
-  // }, []);
 
   return (
     <main className="flex flex-col items-center justify-between p-6 m-10 bg-[var(--color1)] dark:bg-[var(--color4)] text-[var(--color4)] dark:text-[var(--color1)]">
@@ -80,29 +63,6 @@ export default function Home() {
                 />
               </button>
             </a>
-            {/* <a href="https://www.linkedin.com/in/christopher-espenida-8402462a9/" target="_blank" rel="noopener noreferrer">
-              <button
-                onMouseEnter={() => setIsDLHovered(true)}
-                onMouseLeave={() => setIsDLHovered(false)}
-                className="bg-[var(--color2)] hover:bg-[var(--color1)] font-bold py-3 px-5 rounded-full shadow-md flex items-center transition-all">
-                <span style={{ textShadow: '1px 1px 2px rgba(0, 0, 0, 0.3)' }}>
-                  Download CV
-                </span>
-                {theme === 'dark' ? (
-                    <Lottie
-                      animationData={downloadLight}
-                      loop={isDLHovered}
-                      className="ml-1 h-6" />
-                  )
-                    :
-                    (
-                      <Lottie
-                        animationData={downloadDark}
-                        loop={isDLHovered}
-                      className="ml-1 h-6" />
-                  )}
-              </button>
-            </a> */}
           </div>
         </div>
 
