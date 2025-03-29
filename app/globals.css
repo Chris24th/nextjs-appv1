@@ -6,7 +6,7 @@
 :root {
   --color1: #f7f8fa;
   /* Background */
-  --color2: #fafafa;
+  --color2: #eeeeee;
   /* Secondary elements */
   --color3: #f0cc00;
   /* Highlight */
@@ -54,32 +54,8 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Keyframe for the first marquee animation */
-@keyframes marquee {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
-}
-
-/* Keyframe for the second marquee animation */
-@keyframes marquee2 {
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
-
-/* Apply animation to the first marquee */
-.animate-marquee {
-  animation: marquee 30s linear infinite;
-}
-
-/* Apply animation to the second marquee */
-.animate-marquee2 {
-  animation: marquee2 30s linear infinite;
+.blog-div p {
+  font-size: medium;
+  text-align: justify;
+  line-height: 1.6;
 }

@@ -1,68 +1,124 @@
+import React from "react";
+import Marquee from "react-fast-marquee";
+import {
+  FaHtml5,
+  FaBootstrap,
+  FaReact,
+  FaLaravel,
+  FaGitAlt,
+  FaGithub,
+  FaDocker,
+  FaCss3Alt,
+  FaNode,
+} from "react-icons/fa";
+import { SiMysql, SiDotnet, SiTailwindcss, SiJavascript } from "react-icons/si";
+import {
+  PiMicrosoftExcelLogoFill,
+  PiMicrosoftWordLogoFill,
+  PiMicrosoftOutlookLogoFill,
+  PiMicrosoftTeamsLogoFill,
+  PiFileCSharpDuotone,
+} from "react-icons/pi";
+
 export default function Experience() {
   const experiences = [
     {
       companyName: "Sprobe Inc.",
       position: "Web Developer",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      techs: [
+      description:
+        "Developed a social media application like Facebook, where users can post, comment, and has reaction feauture.",
+      softskills: [
         "Web Development",
-        "HTML",
         "Tenacious Work Ethic",
-        "MySQL",
-        "Bootstrap (Framework)",
-        "React.js",
-        "Laravel",
         "Problem Solving",
+        "Teamwork",
+        "Time Management",
+        "Communication",
+      ],
+      techicons: [
+        <FaReact key="react" />,
+        <SiJavascript key="javascript" />,
+        <FaLaravel key="laravel" />,
+        <FaHtml5 key="html5" />,
+        <FaCss3Alt key="css3" />,
+        <SiMysql key="mysql" />,
+        <FaBootstrap key="bootstrap" />,
+        <FaNode key="node" />,
+        <FaGitAlt key="git" />,
+        <FaGithub key="github" />,
+        <FaDocker key="docker" />,
+        <PiMicrosoftTeamsLogoFill key="teams" />,
       ],
     },
     {
       companyName: "Alliance Software Inc.",
       position: "Software Developer",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      techs: [
-        "C#",
-        ".NET Framework",
-        "Japanese",
-        "Mobile Application Development",
-        "Agile Methodologies",
-        "HTML",
-        "Microsoft SQL Server",
-        "MySQL",
-        ".NET MAUI",
-        "ASP.NET MVC",
-        "ASP.NET",
-        "React.js",
+        "I develop full-stack features using C# (MVC), React.js, and Microsoft SQL. I fix bugs on the Alliance website (Alliance.com.ph) and migrate a mobile app from Xamarin to .NET MAUI. I also attend MISJ Japanese classes, currently on JLPT N4 level, will take the exam in the future.",
+      softskills: [
+        "Software Development",
+        "Mobile Development",
+        "Japanese Language",
+        "Tenacious Work Ethic",
+        "Problem Solving",
+        "Teamwork",
+        "Time Management",
+        "Adaptability",
+        "Communication",
+        "Attention to Detail",
+      ],
+      techicons: [
+        <FaReact key="react" />,
+        <SiJavascript key="javascript" />,
+        <PiFileCSharpDuotone key="csharp" />,
+        <SiDotnet key="dotnet" />,
+        <FaHtml5 key="html5" />,
+        <FaCss3Alt key="css3" />,
+        <SiMysql key="mysql" />,
+        <FaBootstrap key="bootstrap" />,
+        <SiTailwindcss key="tailwind" />,
+        <FaGitAlt key="git" />,
+        <FaGithub key="github" />,
+        <PiMicrosoftTeamsLogoFill key="teams" />,
+        <PiMicrosoftWordLogoFill key="word" />,
+        <PiMicrosoftExcelLogoFill key="excel" />,
+        <PiMicrosoftOutlookLogoFill key="outlook" />,
       ],
     },
   ];
 
   return (
-    <section
-      id="experience"
-      className="flex flex-col justify-between p-6 rounded-md shadow-md mt-10"
-      style={{ width: "500px" }}
-    >
-      <h2 className="text-3xl font-bold mb-6">Experiences</h2>
+    <div className="grid grid-cols-6 gap-6 p-6 rounded-md shadow-md mt-20 md:mx-20 lg:mx-52 xl:mx-80  2xl:mx-96">
+      <h2 className="text-3xl font-bold mb-6 col-span-full">Experience</h2>
       {experiences.map((exp, index) => (
-        <div key={index} className="mb-4">
-          <h3 className="text-xl font-semibold">{exp.companyName}</h3>
-          <h4 className="text-lg">{exp.position}</h4>
-          <p>{exp.description}</p>
-
-          {/* Marquee Wrapper */}
-          <div className="relative flex overflow-x-hidden flex items-center justify-center self-center">
-            {/* First Set of Marquee Content */}
-            <div className="py-6 animate-marquee whitespace-nowrap">
-              {exp.techs.join(" • ")}
-            </div>
-            {/* Second Set of Marquee Content (absolute for overlapping) */}
-            <div className="absolute top-0 py-6 animate-marquee2 whitespace-nowrap">
-              {exp.techs.join(" • ")}
-            </div>
+        <div key={index} className="mb-4 col-span-full">
+          <h3 className="text-xl font-semibold col-span-full">
+            {exp.companyName}
+          </h3>
+          <h4 className="text-lg col-span-full italic">{exp.position}</h4>
+          <p className="text-md">{exp.description}</p>
+          {/* Marquee */}
+          <div className="mt-4 overflow-hidden col-span-2">
+            <Marquee gradient={false} speed={10} pauseOnClick>
+              {exp.softskills.map((softskill, softskillsIndex) => (
+                <span
+                  key={softskillsIndex}
+                  className="mx-2 text-sm bg-[var(--color2)] rounded-full px-2 py-1"
+                >
+                  {softskill}
+                </span>
+              ))}
+            </Marquee>
+            <Marquee gradient={false} speed={10} pauseOnClick>
+              {exp.techicons.map((techicon, techiconsIndex) => (
+                <div key={techiconsIndex} className="mt-6 mx-4">
+                  {React.cloneElement(techicon, { size: 32 })}
+                </div>
+              ))}
+            </Marquee>
           </div>
         </div>
       ))}
-    </section>
+    </div>
   );
 }

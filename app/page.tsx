@@ -43,8 +43,7 @@ export default function Home() {
           {/* Buttons Section */}
           <div className="flex space-x-2 mt-6">
             <a
-              href="https://www.linkedin.com/in/christopher-espenida-8402462a9/ 
-            // "
+              href="https://www.linkedin.com/in/christopher-espenida/"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -89,14 +88,22 @@ export default function Home() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-3 w-full min-h-screen">
-        <div className="flex flex-col align-left justify-center">
+        <div className="flex flex-col align-left justify-center px-5 xl:px-32">
           <div className="text-center space-y-2">
             <h1 className="text-5xl font-bold tracking-wide text-[var(--color3)]">
               ABOUT ME
             </h1>
-            <h1 className="text-lg font-medium">
-              BS Computer Engineering Graduate
-            </h1>
+            <p className="text-sm lg:text-md text-justify">
+              Had development experience in Flutter, JavaScript(React),
+              PHP(Laravel), Python(Flask), C++, C#, Firebase, MySQL, SQLite and
+              Agile methodologies, I possess strong problem-solving, teamwork,
+              and communication abilities. Throughout my academic projects, I
+              have successfully led the development of 2 mobile apps for
+              embedded systems and 3 web applications, showcasing my capability
+              to deliver high-quality results. A dedicated learner, I thrive in
+              collaborative environments that foster knowledge-sharing and
+              continuous growth. Let&apos;s connect. 🙂
+            </p>
           </div>
         </div>
 
@@ -123,7 +130,11 @@ export default function Home() {
       </div>
 
       {/* Experience Section */}
-      <Experience />
+      <section id="experience">
+        <Experience />
+      </section>
+
+      {/* Skills and Projects Section */}
       <section
         id="skills"
         className="flex items-center justify-between w-full p-6 rounded-md shadow-md mt-10"

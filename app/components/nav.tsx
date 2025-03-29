@@ -45,7 +45,7 @@ export function Navbar() {
       name: "Blog",
       icon: pencil,
     },
-    "/contact": {
+    "/notfound": {
       name: "Contact",
       icon: postbox,
     },
