@@ -124,6 +124,7 @@ export default function Home() {
 
       {/* Experience Section */}
       <Experience />
+
       <section
         id="skills"
         className="flex items-center justify-between w-full p-6 rounded-md shadow-md mt-10"

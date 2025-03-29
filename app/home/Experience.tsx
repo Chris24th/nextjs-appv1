@@ -1,3 +1,6 @@
+import React from "react";
+import Marquee from "react-fast-marquee";
+
 export default function Experience() {
   const experiences = [
     {
@@ -40,26 +43,25 @@ export default function Experience() {
   return (
     <section
       id="experience"
-      className="flex flex-col justify-between p-6 rounded-md shadow-md mt-10"
-      style={{ width: "500px" }}
+      className="grid grid-cols-6 gap-6 p-6 rounded-md shadow-md mt-10 md:mx-20 lg:mx-52 xl:mx-80  2xl:mx-96"
     >
-      <h2 className="text-3xl font-bold mb-6">Experiences</h2>
+      <h2 className="text-3xl font-bold mb-6 col-span-full">Experiences</h2>
       {experiences.map((exp, index) => (
-        <div key={index} className="mb-4">
-          <h3 className="text-xl font-semibold">{exp.companyName}</h3>
-          <h4 className="text-lg">{exp.position}</h4>
+        <div key={index} className="mb-4 col-span-full">
+          <h3 className="text-xl font-semibold col-span-full">
+            {exp.companyName}
+          </h3>
+          <h4 className="text-lg col-span-full">{exp.position}</h4>
           <p>{exp.description}</p>
-
-          {/* Marquee Wrapper */}
-          <div className="relative flex overflow-x-hidden flex items-center justify-center self-center">
-            {/* First Set of Marquee Content */}
-            <div className="py-6 animate-marquee whitespace-nowrap">
-              {exp.techs.join(" • ")}
-            </div>
-            {/* Second Set of Marquee Content (absolute for overlapping) */}
-            <div className="absolute top-0 py-6 animate-marquee2 whitespace-nowrap">
-              {exp.techs.join(" • ")}
-            </div>
+          {/* Marquee */}
+          <div className="mt-4 overflow-hidden col-span-2">
+            <Marquee gradient={false} speed={30} pauseOnHover>
+              {exp.techs.map((tech, techIndex) => (
+                <span key={techIndex} className="mx-2 text-sm">
+                  {tech}
+                </span>
+              ))}
+            </Marquee>
           </div>
         </div>
       ))}
