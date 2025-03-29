@@ -100,18 +100,15 @@ export default function Experience() {
           {/* Marquee */}
           <div className="mt-4 overflow-hidden col-span-2">
             <Marquee gradient={false} speed={10} pauseOnClick>
-              {exp.softskills.map((softskills, techIndex) => (
-                <span
-                  key={techIndex}
-                  className="mx-2 text-sm bg-[var(--color2)] rounded-full px-2 py-1"
-                >
+              {exp.softskills.map((softskills) => (
+                <span className="mx-2 text-sm bg-[var(--color2)] rounded-full px-2 py-1">
                   {softskills}
                 </span>
               ))}
             </Marquee>
             <Marquee gradient={false} speed={10} pauseOnClick>
-              {exp.techicons.map((techicons, techIndex) => (
-                <div key={techIndex} className="mt-6 mx-4">
+              {exp.techicons.map((techicons) => (
+                <div className="mt-6 mx-4">
                   {React.cloneElement(techicons, { size: 32 })}
                 </div>
               ))}
