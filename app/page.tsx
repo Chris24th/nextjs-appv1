@@ -102,7 +102,7 @@ export default function Home() {
               embedded systems and 3 web applications, showcasing my capability
               to deliver high-quality results. A dedicated learner, I thrive in
               collaborative environments that foster knowledge-sharing and
-              continuous growth. Let's connect. 🙂
+              continuous growth. Let&apos;s connect. 🙂
             </p>
           </div>
         </div>
