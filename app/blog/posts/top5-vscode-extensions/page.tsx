@@ -136,7 +136,7 @@ export default function Blog4() {
           </ul>
         </div>
 
-        <div className="mb-20">
+        <div className="mb-14">
           <h3 className="text-xl font-semibold  mb-2">Ruby on Rails</h3>
           <ul className="list-disc pl-6 text-md">
             <li>
