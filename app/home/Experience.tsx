@@ -111,7 +111,7 @@ export default function Experience() {
             </Marquee>
             <Marquee gradient={false} speed={10} pauseOnClick>
               {exp.techicons.map((techicon, techiconsIndex) => (
-                <div key={techiconsIndex} className="mt-6 mx-4">
+                <div key={techiconsIndex} className="mt-6 mx-2 md:mx-4">
                   {React.cloneElement(techicon, { size: 32 })}
                 </div>
               ))}
