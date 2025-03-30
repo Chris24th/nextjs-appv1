@@ -26,7 +26,12 @@ export default function Skills() {
   ];
 
   return (
-    <div className="grid grid-cols-12 w-full p-6 rounded-md shadow-md mt-10">
+    <motion.div
+      initial={{ opacity: 0, x: -50 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.5, delay: 0.2 }}
+      className="grid grid-cols-12 w-full p-6 rounded-md shadow-md mt-10"
+    >
       <h2 className="text-3xl font-bold col-span-full mb-2">Skills</h2>
       <div className="col-span-full grid grid-cols-1 md:grid-cols-2 ">
         {skills.map((skill, index) => (
@@ -34,7 +39,7 @@ export default function Skills() {
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.2 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
               onViewportEnter={() => setPercentage(true)}
               className="col-span-full md:col-span-6 md:grid grid-cols-12 gap-2 justify-center self-center"
@@ -42,7 +47,7 @@ export default function Skills() {
               <p className="text-sm lg:text-md mb-2 col-span-4">{skill.name}</p>
               <ProgressBar
                 completed={percentage ? skill.level : 0}
-                transitionDuration="2s"
+                transitionDuration={`${index > 6 ? 3.5 : 3}s`}
                 bgColor="var(--color3)"
                 labelColor="var(--color4)"
                 baseBgColor="var(--color2)"
@@ -54,6 +59,6 @@ export default function Skills() {
           </div>
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 }

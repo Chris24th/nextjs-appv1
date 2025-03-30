@@ -19,6 +19,7 @@ import {
   PiMicrosoftTeamsLogoFill,
   PiFileCSharpDuotone,
 } from "react-icons/pi";
+import { motion } from "framer";
 
 export default function Experience() {
   const experiences = [
@@ -88,10 +89,21 @@ export default function Experience() {
   ];
 
   return (
-    <div className="grid grid-cols-6 gap-6 p-6 rounded-md shadow-md mt-20 md:mx-20 lg:mx-52 xl:mx-80  2xl:mx-96">
+    <motion.div
+      initial={{ opacity: 0, x: -80 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      transition={{ duration: 1, delay: 0.2 }}
+      className="grid grid-cols-6 gap-6 p-6 rounded-md shadow-md mt-20 md:mx-20 lg:mx-52 xl:mx-80  2xl:mx-96"
+    >
       <h2 className="text-3xl font-bold mb-6 col-span-full">Experience</h2>
       {experiences.map((exp, index) => (
-        <div key={index} className="mb-4 col-span-full">
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1, delay: index * 0.5 }}
+          key={index}
+          className="mb-4 col-span-full"
+        >
           <h3 className="text-xl font-semibold col-span-full">
             {exp.companyName}
           </h3>
@@ -117,8 +129,8 @@ export default function Experience() {
               ))}
             </Marquee>
           </div>
-        </div>
+        </motion.div>
       ))}
-    </div>
+    </motion.div>
   );
 }
