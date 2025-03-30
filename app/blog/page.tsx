@@ -4,6 +4,7 @@ import posts from "../components/posts";
 import rightArrow from "../../public/arrow-right.json";
 import dynamic from "next/dynamic";
 import Link from "next/link";
+import { motion } from "framer";
 
 const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
 
@@ -34,7 +35,11 @@ function PostCard({ post }: { post: Post }) {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <div
+    <motion.div
+      initial={{ opacity: 0, x: -50 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.5, delay: post.id * 0.2 }}
+      viewport={{ once: true }}
       className="bg-[var(--color2)] shadow-md rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -45,7 +50,9 @@ function PostCard({ post }: { post: Post }) {
             {post.title}
           </h2>
         </Link>
-        <p className="text-white-600 mb-4">{post.description}</p>
+        <p className="text-white-600 mb-4 text-sm md:text-md">
+          {post.description}
+        </p>
         <div className="flex justify-between items-center text-sm text-gray-400 dark:text-gray-500">
           <span>{post.date}</span>
           <Link
@@ -62,6 +69,6 @@ function PostCard({ post }: { post: Post }) {
           </Link>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
