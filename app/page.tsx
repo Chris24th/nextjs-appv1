@@ -7,6 +7,7 @@ import dynamic from "next/dynamic";
 import Experience from "./home/Experience";
 import Skills from "./home/Skills";
 import { motion } from "framer";
+import Projects from "./home/Projects";
 
 const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
 
@@ -150,17 +151,8 @@ export default function Home() {
       <section id="skills">
         <Skills />
       </section>
-      <section
-        id="projects"
-        className="grid grid-cols-2 items-center justify-between w-80 p-6 rounded-md shadow-md mt-10"
-      >
-        <h2 className="text-3xl font-bold col-span-full">Projects</h2>
-        <p className="">Coming soon.</p>
-        <Lottie
-          animationData={rocket}
-          loop={true}
-          className="bg-[var(--color3)] rounded-full ml-1 w-20 h-20 p-3"
-        />
+      <section id="projects">
+        <Projects />
       </section>
     </main>
   );

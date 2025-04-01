@@ -30,7 +30,7 @@ export default function Skills() {
       initial={{ opacity: 0, x: -50 }}
       whileInView={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.5, delay: 0.2 }}
-      className="grid grid-cols-12 w-full p-6 rounded-md shadow-md mt-10"
+      className="grid grid-cols-12 w-full p-6 rounded-md shadow-md mt-20"
     >
       <h2 className="text-3xl font-bold col-span-full mb-2">Skills</h2>
       <div className="col-span-full grid grid-cols-1 md:grid-cols-2 ">

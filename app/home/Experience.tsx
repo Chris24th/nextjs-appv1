@@ -90,9 +90,9 @@ export default function Experience() {
 
   return (
     <motion.div
-      initial={{ opacity: 0, x: -80 }}
+      initial={{ opacity: 0, x: -50 }}
       whileInView={{ opacity: 1, x: 0 }}
-      transition={{ duration: 1, delay: 0.2 }}
+      transition={{ duration: 0.5, delay: 0.2 }}
       className="grid grid-cols-6 gap-6 p-6 rounded-md shadow-md mt-20 md:mx-20 lg:mx-52 xl:mx-80  2xl:mx-96"
     >
       <h2 className="text-3xl font-bold mb-6 col-span-full">Experience</h2>
