@@ -15,35 +15,18 @@ import { TbWorld } from "react-icons/tb";
 export default function Projects() {
   const projects = [
     {
-      Project: "Postello",
-      role: "Full-stack Developer",
-      description:
-        "Developed a social media application like Facebook, where users can post, comment, and has reaction feature.",
-      techicons: [
-        <FaReact key="react" />,
-        <SiJavascript key="javascript" />,
-        <FaLaravel key="laravel" />,
-        <FaCss3Alt key="css3" />,
-        <SiMysql key="mysql" />,
-        <FaBootstrap key="bootstrap" />,
-        <FaNode key="node" />,
-        <FaDocker key="docker" />,
-      ],
-      repository: "https://github.com/Chris24th/",
-    },
-    {
       Project: "Smart Safety Helmet App",
       role: "Full-stack Developer",
       description: "A School project for Thesis.",
       techicons: [<FaFlutter key="flutter" />, <FaDartLang key="dart" />],
-      repository: "https://github.com/Chris24th/",
+      repository: "https://github.com/Chris24th/SSHv1",
     },
     {
       Project: "Personal Mini Coin Bank (PMCB) App",
       role: "Full-stack Developer",
       description: "A School project from [Embedded] subject.",
       techicons: [<FaFlutter key="flutter" />, <FaDartLang key="dart" />],
-      repository: "https://github.com/Chris24th/",
+      repository: "https://github.com/Chris24th/Embedded",
     },
     {
       Project: "Poetry Pad",
@@ -61,6 +44,23 @@ export default function Projects() {
       website: "https://poetry-pad.vercel.app/",
     },
     {
+      Project: "Postello",
+      role: "Full-stack Developer",
+      description:
+        "Developed a social media application like Facebook, where users can post, comment, and has reaction feature.",
+      techicons: [
+        <FaReact key="react" />,
+        <SiJavascript key="javascript" />,
+        <FaLaravel key="laravel" />,
+        <FaCss3Alt key="css3" />,
+        <SiMysql key="mysql" />,
+        <FaBootstrap key="bootstrap" />,
+        <FaNode key="node" />,
+        <FaDocker key="docker" />,
+      ],
+      repository: "https://github.com/Chris24th/R-L-PROJECT/tree/react-laravel",
+    },
+    {
       Project: "Ambience",
       role: "Full-stack Developer",
       description: "A School project from [Software Development 2] subject.",
@@ -74,7 +74,7 @@ export default function Projects() {
       repository: "https://github.com/Chris24th/Ambience-v1",
     },
     {
-      Project: "Piano",
+      Project: "Circle of Fifths",
       role: "QA Engineer",
       description: "A School project from [Software Development 1] subject.",
       techicons: [],
