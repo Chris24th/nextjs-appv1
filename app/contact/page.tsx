@@ -1,6 +1,4 @@
 "use client";
-
-import Link from "next/link";
 import { useState } from "react";
 import VantaBackground from "../components/vantaBg";
 
@@ -108,7 +106,7 @@ export default function Contact() {
       } else {
         setSubmitStatus("error");
       }
-    } catch (error) {
+    } catch {
       setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);
@@ -128,7 +126,8 @@ export default function Contact() {
               Get In Touch
             </h1>
             <p className="text-white/80 text-lg leading-relaxed">
-              Have a project in mind? Let's discuss how we can work together.
+              Have a project in mind? Let&apos;s discuss how we can work
+              together.
             </p>
           </div>
 
@@ -246,7 +245,7 @@ export default function Contact() {
             {/* Status Messages */}
             {submitStatus === "success" && (
               <div className="p-4 bg-green-500/20 border border-green-500/30 rounded-lg text-green-300 text-center">
-                ✅ Message sent successfully! I'll get back to you soon.
+                ✅ Message sent successfully! I&apos;ll get back to you soon.
               </div>
             )}
 

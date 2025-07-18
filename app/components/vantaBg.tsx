@@ -2,13 +2,12 @@
 
 import { useEffect, useRef, useState, PropsWithChildren } from "react";
 import * as THREE from "three";
-import { max } from "three/tsl";
 import CLOUDS from "vanta/dist/vanta.clouds.min";
 
 interface VantaOptions {
   color?: number;
   backgroundColor?: number;
-  [key: string]: any;
+  [key: string]: string | number | boolean | undefined;
 }
 
 export default function VantaBackground({
@@ -16,7 +15,9 @@ export default function VantaBackground({
   options,
 }: PropsWithChildren<{ options?: VantaOptions }>) {
   const ref = useRef<HTMLDivElement | null>(null);
-  const [vantaEffect, setVantaEffect] = useState<any>(null);
+  const [vantaEffect, setVantaEffect] = useState<{
+    destroy: () => void;
+  } | null>(null);
 
   useEffect(() => {
     if (!vantaEffect && ref.current) {
