@@ -1,6 +1,6 @@
 import localFont from "next/font/local";
-import Footer from './components/footer';
-import { Navbar } from './components/nav'
+import Footer from "./components/footer";
+import { Navbar } from "./components/nav";
 import "./globals.css";
 import { ThemeProvider } from "../context/ThemeContext";
 
@@ -25,18 +25,18 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-
   return (
-    <ThemeProvider >
+    <ThemeProvider>
       <html lang="en">
-      <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[var(--color1)] text-[var(--color4)]`}>
+        <body
+          className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[var(--color1)] text-[var(--color4)]`}
+        >
           <Navbar />
           <div className="flex justify-center items-center min-h-screen">
-        {children}
+            {children}
           </div>
           <Footer />
-      </body>
+        </body>
       </html>
     </ThemeProvider>
   );

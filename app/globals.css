@@ -2,22 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Default light theme (light mode) */
 :root {
-  --color1: #f7f8fa;
-  /* Background */
-  --color2: #eeeeee;
-  /* Secondary elements */
-  --color3: #f0cc00;
-  /* Highlight */
-  --color4: #222831;
-  /* Text */
-  --color5: #1f2937;
-  /* codeBg */
-}
-
-/* Dark theme (when class or media query is active) */
-[data-theme="dark"] {
   --color1: #222831;
   /* Background */
   --color2: #393e46;
@@ -27,6 +12,19 @@
   --color4: #eeeeee;
   /* Text */
   --color5: #111827;
+  /* codeBg */
+}
+
+[data-theme="light"] {
+  --color1: #f7f8fa;
+  /* Background */
+  --color2: #eeeeee;
+  /* Secondary elements */
+  --color3: #f0cc00;
+  /* Highlight */
+  --color4: #222831;
+  /* Text */
+  --color5: #1f2937;
   /* codeBg */
 }
 

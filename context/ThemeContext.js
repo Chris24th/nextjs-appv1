@@ -5,7 +5,7 @@ import { createContext, useContext, useState, useEffect } from 'react';
 const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
-    const [theme, setTheme] = useState('light');
+    const [theme, setTheme] = useState('dark');
 
     useEffect(() => {
         if (typeof document !== 'undefined') {
@@ -19,7 +19,7 @@ export const ThemeProvider = ({ children }) => {
     }, []);
 
     const toggleTheme = () => {
-        const newTheme = theme === 'light' ? 'dark' : 'light';
+        const newTheme = theme === 'dark' ? 'light' : 'dark';
         setTheme(newTheme);
         if (typeof document !== 'undefined') {
             document.documentElement.setAttribute('data-theme', newTheme);
