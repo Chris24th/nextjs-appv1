@@ -262,10 +262,10 @@ export default function Contact() {
             <p className="text-white/70 text-sm leading-relaxed">
               Prefer email? Reach me directly at{" "}
               <a
-                href="mailto:your@email.com"
+                href="mailto:christopherespenida@email.com"
                 className="text-blue-400 hover:text-blue-300 hover:underline transition-colors duration-300"
               >
-                your@email.com
+                christopherespenida@email.com
               </a>
             </p>
           </div>
